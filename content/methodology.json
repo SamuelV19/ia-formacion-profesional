@@ -1,0 +1,78 @@
+{
+  "$schema_version": "1.0.0",
+  "materia": "IA en la Formación Profesional",
+  "titulo": "Marco Conceptual y Metodológico del Showcase",
+  "arcoNarrativo": "Ética → Decisión → Ingeniería",
+  "proposito": "Articular tres proyectos académicos independientes dentro de un recorrido coherente sobre responsabilidad ética, transparencia algorítmica e ingeniería de software asistida por IA, sin atribuirles capacidades tecnológicas que no poseen.",
+  "principiosMetodologicos": [
+    "Inmutabilidad de repositorios fuente: ÉticaLab, FuzzyDrive AI y DevGuard AI se analizan en modo solo lectura.",
+    "Fidelidad técnica y cero alucinación: distinguir explícitamente entre análisis determinístico, IA simbólica (lógica difusa) y Agent Skills sobre LLM.",
+    "No duplicación de Skills: la Skill existente 'devguard' se referencia en su repositorio original.",
+    "Validación humana: toda síntesis técnica y futura decisión de despliegue requiere revisión del equipo."
+  ],
+  "ejeConceptual": [
+    {
+      "orden": 1,
+      "proyectoId": "eticalab",
+      "pilar": "Ética",
+      "etapa": "Antes de construir",
+      "eje": "Ética, responsabilidad y análisis previo a la construcción",
+      "preguntaClave": "¿Qué riesgos humanos, sociales y éticos implica una decisión tecnológica antes de llevarla a producción?",
+      "fundamento": "Aporta el marco reflexivo para identificar personas afectadas, evaluar principios éticos y justificar alternativas antes de escribir o desplegar software o sistemas de IA.",
+      "mecanismoReal": "Reglas determinísticas de consistencia documental sin LLM ni ML; aborda sistemas de IA y agentes autónomos como objeto de evaluación ética.",
+      "usaAgentesOLLM": false,
+      "conexionSiguiente": "Una vez definido el marco ético y los riesgos aceptables, surge la necesidad de diseñar mecanismos de decisión transparentes y explicables."
+    },
+    {
+      "orden": 2,
+      "proyectoId": "fuzzy-drive-ai",
+      "pilar": "Decisión",
+      "etapa": "Dentro del motor",
+      "eje": "Sistemas inteligentes y apoyo a la toma de decisiones mediante lógica difusa",
+      "preguntaClave": "¿Cómo tomar decisiones cuantitativas bajo incertidumbre manteniendo trazabilidad e interpretabilidad completa?",
+      "fundamento": "Demuestra IA simbólica transparente mediante inferencia difusa Mamdani implementada desde cero, permitiendo inspeccionar exactamente qué reglas se activan y por qué.",
+      "mecanismoReal": "Motor difuso Mamdani determinístico con 27 reglas IF-THEN y desfusificación por centroide; sin entrenamiento ML, sin LLM y sin agentes.",
+      "usaAgentesOLLM": false,
+      "conexionSiguiente": "Al pasar del modelo conceptual al software real, se requiere asegurar calidad, seguridad y mantenibilidad en el código que implementa los sistemas."
+    },
+    {
+      "orden": 3,
+      "proyectoId": "devguard-ai",
+      "pilar": "Ingeniería",
+      "etapa": "Durante la ingeniería de software",
+      "eje": "Agentes, Skills, LLM y asistencia durante la ingeniería de software",
+      "preguntaClave": "¿Cómo aprovechar agentes basados en LLM para auditar seguridad, calidad y pruebas sin delegar el criterio ni aceptar alucinaciones?",
+      "fundamento": "Materializa la asistencia con IA agéntica mediante la Skill 'devguard', imponiendo evidencia textual obligatoria, matrices de severidad y validación Human-in-the-Loop.",
+      "mecanismoReal": "Agent Skill ejecutable por agentes LLM en Antigravity (agy) y Gemini CLI (gemini) con Progressive Disclosure, más landing page estática informativa.",
+      "usaAgentesOLLM": true,
+      "conexionSiguiente": "Cierra el ciclo conectando el criterio ético previo, la explicabilidad algorítmica y la ingeniería asistida responsable."
+    }
+  ],
+  "flujoMetodologicoRepositorio": [
+    {
+      "paso": 1,
+      "skill": "project-analysis",
+      "entrada": "Repositorios locales de ÉticaLab, FuzzyDrive AI y DevGuard AI",
+      "salida": "Evidencia verificada sobre stack, arquitectura, IA, agentes, Skills, pruebas, despliegue y limitaciones"
+    },
+    {
+      "paso": 2,
+      "skill": "documentation",
+      "entrada": "Hallazgos de project-analysis",
+      "salida": "Documentación homogénea en README.md, referencias a la Skill 'devguard' sin duplicación y capa content/"
+    },
+    {
+      "paso": 3,
+      "skill": "presentation",
+      "entrada": "Datos estructurados en content/projects.json y content/methodology.json",
+      "salida": "Narrativa académica clara para la futura landing page"
+    },
+    {
+      "paso": 4,
+      "skill": "deployment",
+      "entrada": "Aplicación web futura y enlaces a demos desplegadas",
+      "salida": "Verificación de build, tests, rutas base y disponibilidad HTTP de los proyectos vinculados"
+    }
+  ],
+  "coordinador": "showcase-agent"
+}

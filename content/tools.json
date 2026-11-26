@@ -1,0 +1,71 @@
+{
+  "$schema_version": "1.0.0",
+  "actualizadoEn": "2026-11-26",
+  "herramientas": [
+    {
+      "id": "antigravity",
+      "nombre": "Antigravity (CLI / IDE)",
+      "categoria": "Entorno de agentes",
+      "comando": "agy",
+      "funcion": "Entorno de desarrollo y CLI para ejecutar agentes asistidos con descubrimiento nativo de Skills ubicadas en .agents/skills/ y definiciones de agentes en .agents/agents/.",
+      "relacionConElProyecto": "Soporta la ejecución tanto de las Skills metodológicas de ia-formacion-profesional y del showcase-agent como de la Skill existente 'devguard' en devguard-ai (documentado con agy 1.3.6 en devguard-ai)."
+    },
+    {
+      "id": "gemini-cli",
+      "nombre": "Gemini CLI",
+      "categoria": "Entorno de agentes",
+      "comando": "gemini",
+      "funcion": "Herramienta de línea de comandos para trabajar con agentes LLM desde terminal y descubrir Skills configuradas en el espacio de trabajo (por ejemplo mediante 'gemini skills list --all').",
+      "relacionConElProyecto": "Entorno compatible documentado en devguard-ai (gemini 0.64.0) para descubrir e invocar la Skill 'devguard' durante auditorías de código."
+    },
+    {
+      "id": "skill-devguard",
+      "nombre": "Skill devguard",
+      "categoria": "Agent Skill externa existente",
+      "esAntecedente": true,
+      "ubicacion": "/home/samuel/Proyectos/devguard-ai/.agents/skills/devguard/SKILL.md",
+      "funcion": "Guía de auditoría técnica en 5 fases para detectar riesgos OWASP Top 10 / CWE, evaluar calidad SOLID, diseñar pruebas con patrón AAA y emitir informes técnicos con evidencia obligatoria y enfoque Human-in-the-Loop.",
+      "relacionConElProyecto": "Pertenece al repositorio devguard-ai; no se duplica ni modifica en ia-formacion-profesional. Se documenta como parte central del caso de estudio DevGuard AI y puede usarse para auditar la futura landing del showcase."
+    },
+    {
+      "id": "skill-project-analysis",
+      "nombre": "Skill project-analysis",
+      "categoria": "Agent Skill de ia-formacion-profesional",
+      "ubicacion": ".agents/skills/project-analysis/SKILL.md",
+      "funcion": "Estandariza la inspección en solo lectura de repositorios existentes para extraer problema, objetivo, tecnologías, arquitectura, uso de IA, modelos, agentes, Skills, resultados, despliegue y limitaciones.",
+      "relacionConElProyecto": "Genera la evidencia técnica base que alimenta el README.md y el archivo content/projects.json antes de diseñar la presentación o la landing."
+    },
+    {
+      "id": "skill-documentation",
+      "nombre": "Skill documentation",
+      "categoria": "Agent Skill de ia-formacion-profesional",
+      "ubicacion": ".agents/skills/documentation/SKILL.md",
+      "funcion": "Define la estructura homogénea, la precisión terminológica y las reglas de trazabilidad para documentar proyectos y referenciar Skills externas sin duplicarlas.",
+      "relacionConElProyecto": "Gobierna la consistencia de README.md y de la capa estructurada en content/."
+    },
+    {
+      "id": "skill-presentation",
+      "nombre": "Skill presentation",
+      "categoria": "Agent Skill de ia-formacion-profesional",
+      "ubicacion": ".agents/skills/presentation/SKILL.md",
+      "funcion": "Convierte fichas técnicas verificadas en explicaciones claras y narrativas para audiencia académica, destacando el papel real de la IA y sus limitaciones.",
+      "relacionConElProyecto": "Orienta el contenido de content/methodology.json y guiará la redacción de textos y comparativas de la futura landing page."
+    },
+    {
+      "id": "skill-deployment",
+      "nombre": "Skill deployment",
+      "categoria": "Agent Skill de ia-formacion-profesional",
+      "ubicacion": ".agents/skills/deployment/SKILL.md",
+      "funcion": "Provee un checklist reproducible para verificar dependencias, tipado, pruebas automatizadas, compilación, rutas base (GitHub Pages) y enlaces externos activos.",
+      "relacionConElProyecto": "Se emplea para comprobar la disponibilidad de las URLs de producción de ÉticaLab, FuzzyDrive AI y DevGuard AI, y validará el futuro despliegue del showcase."
+    },
+    {
+      "id": "showcase-agent",
+      "nombre": "Showcase Agent",
+      "categoria": "Agente coordinador",
+      "ubicacion": ".agents/agents/showcase-agent.md",
+      "funcion": "Coordina de extremo a extremo el flujo entre project-analysis, documentation, presentation y deployment asegurando cero alucinación y respeto estricto a la inmutabilidad de los repositorios fuente.",
+      "relacionConElProyecto": "Es el orquestador metodológico de ia-formacion-profesional que articula los análisis y prepara el terreno para la fase de construcción de la landing."
+    }
+  ]
+}

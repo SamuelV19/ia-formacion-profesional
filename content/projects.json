@@ -1,0 +1,172 @@
+{
+  "$schema_version": "1.0.0",
+  "actualizadoEn": "2026-11-26",
+  "proyectos": [
+    {
+      "id": "eticalab",
+      "nombre": "ÉticaLab",
+      "subtitulo": "Laboratorio de Tecnología Responsable",
+      "descripcion": "Plataforma web educativa que ayuda a estudiantes y profesionales de Ingeniería Informática a analizar las implicaciones éticas de sus decisiones tecnológicas antes de llevarlas a producción.",
+      "problema": "Los equipos y estudiantes de ingeniería suelen carecer de una herramienta práctica que traduzca los principios éticos en pasos concretos para identificar riesgos, grupos afectados, alternativas y justificaciones antes del despliegue.",
+      "objetivo": "Traducir las temáticas del V Congreso Internacional de Ética («Habitar juntos: ética, dignidad y cuidado para una convivencia plural», 22 y 23 de octubre de 2026) en funciones interactivas de autoevaluación ética, análisis de riesgos y trazabilidad de decisiones.",
+      "enfoqueIA": {
+        "categoria": "Sin IA en ejecución (reglas determinísticas de consistencia)",
+        "usaLLM": false,
+        "usaML": false,
+        "usaLogicaDifusa": false,
+        "usaAgentes": false,
+        "detalle": "No ejecuta modelos de machine learning ni llama a APIs de LLM. Su módulo src/utils/analysis.ts aplica comprobaciones determinísticas para detectar vacíos de documentación sin calcular puntajes éticos. Aborda sistemas de IA y agentes autónomos como objeto de evaluación ética (por ejemplo, SystemType 'ia' y 'agente', y el caso 'agente-sin-supervision')."
+      },
+      "tecnologias": [
+        "React 18.3.1",
+        "TypeScript 5.9.3",
+        "Vite 5.4.21",
+        "Tailwind CSS 3.4.19",
+        "React Router DOM 6.30.6",
+        "Lucide React 1.61.0",
+        "Fontsource (@fontsource-variable/bricolage-grotesque, @fontsource-variable/instrument-sans)",
+        "Vitest 2.1.9",
+        "Testing Library"
+      ],
+      "arquitecturaResumida": "SPA 100% client-side con React Router (basename '/eticalab'). Organizada en páginas (src/pages/), wizard de 6 etapas (src/components/wizard/), catálogos y matriz de trazabilidad (src/data/), utilidades puras de análisis, validación y exportación JSON (src/utils/) y persistencia local en localStorage bajo la clave 'eticalab:evaluaciones:v1'.",
+      "agentes": null,
+      "skills": null,
+      "modelos": null,
+      "resultados": [
+        "Panel de indicadores calculados sobre evaluaciones reales guardadas localmente.",
+        "Evaluador guiado en 6 etapas (proyecto, personas afectadas, riesgos, 10 principios, alternativas y decisión final).",
+        "6 casos prácticos educativos convertibles en evaluaciones editables y matriz de trazabilidad ética.",
+        "Exportación e importación JSON validada (límite de 5 MB) y vista de impresión/PDF desde el navegador.",
+        "Suites de pruebas definidas en src/test/logic.test.ts y src/test/app.test.tsx (no ejecutadas desde este repositorio para preservar el clon original intacto)."
+      ],
+      "limitaciones": [
+        "No tiene backend ni sincronización entre dispositivos o navegadores.",
+        "Almacenamiento limitado por localStorage (~5 MB según el navegador).",
+        "La generación de PDF depende de la función de impresión del navegador.",
+        "Los diez principios son una selección práctica educativa, no un marco normativo exhaustivo ni certificación.",
+        "Los avisos automáticos solo señalan vacíos documentales; no evalúan la calidad ética del contenido.",
+        "Los casos prácticos son ficticios y la interfaz está únicamente en español."
+      ],
+      "repositorioGitHub": "https://github.com/SamuelV19/eticalab",
+      "repositorioVerificado": true,
+      "urlProduccion": "https://samuelv19.github.io/eticalab/",
+      "urlProduccionVerificada": true
+    },
+    {
+      "id": "fuzzy-drive-ai",
+      "nombre": "FuzzyDrive AI",
+      "subtitulo": "Simulador de riesgo vial con lógica difusa Mamdani",
+      "descripcion": "Aplicación web educativa que evalúa y visualiza en tiempo real el riesgo vial de situaciones simuladas mediante un motor de inferencia difusa Mamdani implementado desde cero en TypeScript.",
+      "problema": "Evaluar de forma transparente e interpretable cómo interactúan variables continuas de conducción (velocidad, distancia y adversidad de la vía) para estimar el riesgo vial, sin depender de pesos fijos simplistas ni modelos opacos tipo caja negra.",
+      "objetivo": "Demostrar el funcionamiento completo de un sistema experto basado en lógica difusa Mamdani (fuzzificación, activación de reglas, implicación, agregación y desfusificación por centroide) con trazabilidad visual de cada regla activada.",
+      "enfoqueIA": {
+        "categoria": "IA simbólica (lógica difusa Mamdani)",
+        "usaLLM": false,
+        "usaML": false,
+        "usaLogicaDifusa": true,
+        "usaAgentes": false,
+        "detalle": "Implementa desde cero un motor de inferencia difusa Mamdani sin librerías externas de lógica difusa, sin backend y sin aprendizaje automático. Modela 3 variables de entrada (velocidad 0–140 km/h, distancia 1–100 m, adversidad de vía 0–100) y 1 salida de riesgo (0–100) con funciones triangulares y trapezoidales, 27 reglas IF-THEN completas, operador AND por mínimo, implicación por mínimo, agregación por máximo y desfusificación por centroide (paso 0.25, 401 puntos)."
+      },
+      "tecnologias": [
+        "React 18.3.1",
+        "TypeScript 5.5.4",
+        "Vite 5.4.2",
+        "Recharts 2.12.7",
+        "Vitest 2.0.5",
+        "CSS (src/styles/app.css)"
+      ],
+      "arquitecturaResumida": "Arquitectura desacoplada en tres capas: motor matemático puro independiente de React en src/fuzzy/ (membership.ts, variables.ts, rules.ts, inference.ts), capa de simulación y escenarios en src/sim/ (scenarios.ts, useSimulation.ts) y componentes de visualización interactiva en src/components/ que consumen inferRisk(entrada).",
+      "agentes": null,
+      "skills": null,
+      "modelos": null,
+      "resultados": [
+        "Motor Mamdani completo y determinístico con validación de entradas (RangeError ante valores fuera de rango o no finitos) y manejo explícito de casos degenerados.",
+        "Simulador en tiempo real con modo automático (1, 3 o 5 s), modo manual mediante sliders, demo crítica reproducible de 9 pasos, explorador difuso y registro de lecturas.",
+        "Pruebas unitarias definidas en src/fuzzy/membership.test.ts y src/fuzzy/inference.test.ts que cubren pertenencia, rango [0, 100], monotonía y completitud de las 27 reglas (no ejecutadas desde este repositorio para preservar el clon original intacto)."
+      ],
+      "limitaciones": [
+        "Los datos de entrada son completamente simulados; no provienen de sensores ni de un vehículo real.",
+        "Los parámetros de los conjuntos difusos y las reglas son didácticos, no calibrados con datos reales ni normativa vial.",
+        "El sistema no aprende automáticamente; cualquier ajuste requiere modificar reglas o funciones de pertenencia manualmente.",
+        "No debe utilizarse para tomar decisiones reales de conducción.",
+        "La base de reglas asigna categorías de salida de forma lineal según la suma de niveles de peligro."
+      ],
+      "repositorioGitHub": "https://github.com/SamuelV19/fuzzy-drive-ai",
+      "repositorioVerificado": true,
+      "urlProduccion": "https://samuelv19.github.io/fuzzy-drive-ai/",
+      "urlProduccionVerificada": true
+    },
+    {
+      "id": "devguard-ai",
+      "nombre": "DevGuard AI",
+      "subtitulo": "Asistente de Auditoría, Calidad y Seguridad de Código",
+      "descripcion": "Agent Skill especializada en revisión estática de código fuente, detección de riesgos de seguridad (OWASP Top 10 / CWE), análisis de mantenibilidad (SOLID), diseño de pruebas AAA y generación de informes técnicos con enfoque Human-in-the-Loop, acompañada de una landing page explicativa.",
+      "problema": "Las revisiones de código manuales pueden pasar por alto vulnerabilidades críticas y deuda técnica por falta de tiempo, mientras que el uso ingenuo de asistentes de IA puede introducir hallazgos inventados sin evidencia verificable en el código.",
+      "objetivo": "Proveer una Agent Skill reutilizable con filosofía Cero Alucinación y Human-in-the-Loop que asista a desarrolladores y auditores mediante un flujo estructurado de análisis con evidencia textual obligatoria y propuestas de corrección verificables.",
+      "enfoqueIA": {
+        "categoria": "Agent Skill para agentes LLM (Antigravity y Gemini CLI)",
+        "usaLLM": true,
+        "usaML": false,
+        "usaLogicaDifusa": false,
+        "usaAgentes": true,
+        "detalle": "La Skill (.agents/skills/devguard/SKILL.md) guía a un agente LLM mediante Progressive Disclosure en 5 fases (Contexto & Stack, Análisis Multi-Vector, Calibración & Evidencia, Propuestas & Tests, Informe Estructurado). La landing page en landing/ es estática y no ejecuta llamadas a LLMs en producción; su visor demo presenta un caso ilustrativo precalculado."
+      },
+      "tecnologias": [
+        "Antigravity Agent Skills / Gemini CLI Skills (Markdown + YAML frontmatter)",
+        "React 18.3.1",
+        "TypeScript 5.6.2",
+        "Vite 6.1.0",
+        "Tailwind CSS 3.4.17",
+        "Lucide React 0.475.0",
+        "clsx 2.1.1",
+        "tailwind-merge 2.6.0"
+      ],
+      "arquitecturaResumida": "Sistema desacoplado en dos subsistemas: (1) Subsistema Agent Skill en .agents/skills/devguard/ con SKILL.md, guías bajo demanda en references/, plantilla en templates/report-template.md y caso completo en examples/; (2) Subsistema Landing en landing/src/ con 10 secciones modulares y configuración centralizada en landing/src/config/siteConfig.ts.",
+      "agentes": [
+        "Agentes ejecutados mediante Antigravity CLI / IDE (agy)",
+        "Agentes ejecutados mediante Gemini CLI (gemini)"
+      ],
+      "skills": [
+        {
+          "nombre": "devguard",
+          "esAntecedenteCasoEstudio": true,
+          "ubicacionCanonica": "/home/samuel/Proyectos/devguard-ai/.agents/skills/devguard/SKILL.md",
+          "funcion": "Auditoría técnica de código fuente (OWASP Top 10, CWE, SOLID), diseño de pruebas AAA e informe estructurado con evidencia obligatoria y validación humana.",
+          "fases": [
+            "1. Contexto & Stack",
+            "2. Análisis Multi-Vector",
+            "3. Calibración & Evidencia",
+            "4. Propuestas & Tests",
+            "5. Informe Estructurado"
+          ],
+          "recursos": [
+            "references/security-checklist.md",
+            "references/code-quality-checklist.md",
+            "references/testing-guide.md",
+            "templates/report-template.md",
+            "examples/"
+          ],
+          "notaCompatibilidad": "La documentación registra compatibilidad vía enlace simbólico .gemini/skills/devguard (actualmente .gemini/skills/ está vacía en el clon local)."
+        }
+      ],
+      "modelos": null,
+      "resultados": [
+        "24 entregables documentados en docs/DELIVERABLES.md junto con docs/ARCHITECTURE.md, docs/TESTING.md y docs/DEVELOPMENT_LOG.md.",
+        "Descubrimiento validado en docs/TESTING.md mediante 'gemini skills list --all' reportando 'devguard [Enabled]'.",
+        "Compilación estricta de landing/ registrada en docs/TESTING.md ('tsc && vite build' en 2.25s, 1600 módulos) y auditoría básica de secretos sin hallazgos.",
+        "Caso práctico completo incluido en examples/: vulnerable-auth-endpoint.ts, vulnerable-auth-report.md y fixed-auth-endpoint.ts.",
+        "Landing page publicada con infografía técnica y video demostrativo integrados mediante siteConfig.ts."
+      ],
+      "limitaciones": [
+        "Soporte asistido: no emite garantías legales ni certificaciones de seguridad industrial.",
+        "El análisis estático asistido no reemplaza auditorías dinámicas (DAST), pruebas de penetración (pentesting) ni revisiones de infraestructura.",
+        "Posible aparición de falsos positivos; requiere validación humana antes de aplicar cambios en producción.",
+        "El modelo LLM concreto no está fijado en SKILL.md: depende de la sesión del agente que la invoque."
+      ],
+      "repositorioGitHub": "https://github.com/SamuelV19/devguard-ia",
+      "repositorioVerificado": true,
+      "urlProduccion": "https://samuelv19.github.io/devguard-ia/",
+      "urlProduccionVerificada": true
+    }
+  ]
+}
