@@ -6,10 +6,6 @@ Repositorio del proyecto final de la materia **IA en la Formación Profesional**
 2. **DevGuard AI** — Agent Skill de auditoría técnica de código y seguridad con enfoque *Human-in-the-Loop*.
 3. **FuzzyDrive AI** — Simulador educativo de riesgo vial con lógica difusa Mamdani.
 
-> [!NOTE]
-> **Estado actual del repositorio (Fase 2 — Infraestructura Metodológica + Capa de Contenido Estructurado)**:
-> Este repositorio contiene las Skills de trabajo, el agente coordinador (`showcase-agent`), el análisis técnico real de los tres proyectos fuente y la capa estructurada en [`content/`](content/) que consumirá posteriormente la landing. **No incluye todavía la landing page ni duplica código de los repositorios analizados.**
-
 ---
 
 ## 1. Arquitectura y Metodología del Repositorio
